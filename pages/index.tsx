@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar/Navbar'
-import { IAvogadro } from '@interfaces';
+import { IAvocado } from '@interfaces'
 
 const HomePage = () => {
-
-  const [listadoAvo, setListadoAvo] = useState<IAvogadro[]>([])
+  const [listadoAvo, setListadoAvo] = useState<IAvocado[]>([])
 
   const getData = async () => {
     try {
       const { data } = await (await window.fetch('/api/avo')).json()
       setListadoAvo(data)
     } catch (error) {
-      console.error(error);
+      console.error('TYPE ERROR: ' + error)
     }
   }
 
@@ -19,15 +18,12 @@ const HomePage = () => {
     getData()
   }, [])
 
-
   return (
     <div>
       <Navbar />
       <div>Platzi and Next.js!</div>
-      {listadoAvo.map(avogadro => (
-        <div>
-          {avogadro.id}
-        </div>
+      {listadoAvo.map((avocado) => (
+        <div>{avocado.id}</div>
       ))}
     </div>
   )

@@ -1,35 +1,54 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
-import { IAvogadro } from '@interfaces';
+import { IAvocado } from '@interfaces'
+import Loader from 'components/Loader/Loader'
 
 const ProductPage = () => {
-
-  const { query } = useRouter()
-  const [avogadro, setAvogadro] = useState<IAvogadro>({} as any)
+  const {
+    query: { id },
+  } = useRouter()
+  const [avocado, setAvocado] = useState<IAvocado>({} as any)
+  const [loader, setLoader] = useState(false)
 
   const getData = async () => {
-    if (query.id !== null) {
-      console.log(query.id);
-      const avo = await (await window.fetch(`/api/avo/${query.id}`)).json()
+    try {
+      setLoader(true)
+      const avo = await (await window.fetch(`/api/avo/${id}`)).json()
       if (avo) {
-        setAvogadro(avo)
+        setAvocado(avo)
       }
+    } catch (error) {
+      console.error('TYPE ERROR: ' + error)
+    } finally {
+      setLoader(false)
     }
   }
 
   useEffect(() => {
-    getData()
-  }, [])
+    if (id) {
+      getData()
+    }
+  }, [id])
 
   return (
     <section>
-      <h1>Página producto: {avogadro.name}</h1>
-      <p>
-        id:{avogadro.id}<br />
-        name:{avogadro.name}<br />
-        image:{avogadro.image}<br />
-        price:${avogadro.price}<br />
-      </p>
+      {loader ? (
+        <Loader />
+      ) : (
+        <>
+          <h1>{avocado.name}</h1>
+          <p>
+            <img src={`${avocado.image}`} alt="defaultAvocado" />
+            <br />
+            id: {avocado.id}
+            <br />
+            name: {avocado.name}
+            <br />
+            price: ${avocado.price}
+            <br />
+          </p>
+        </>
+      )}
     </section>
   )
 }

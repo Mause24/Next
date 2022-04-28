@@ -1,6 +1,3 @@
-import {IAvogadro,Attributes} from './avogadro.interface' 
+import { IAvocado, Attributes } from './avocado.interface'
 
-export type { 
-    IAvogadro,
-    Attributes 
-} 
+export type { IAvocado, Attributes }
