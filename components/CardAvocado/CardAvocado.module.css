@@ -1,0 +1,9 @@
+.CardAvo{
+    background: goldenrod;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    
+}

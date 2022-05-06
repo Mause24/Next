@@ -31,8 +31,8 @@ const HomePage = () => {
       {listadoAvo.length === 0 ?
         <Loader />
         :
-        listadoAvo.map((avocado) => (
-          <CardAvocado avocado={avocado} />
+        listadoAvo.map((avocado,index) => (
+          <CardAvocado key={index} avocado={avocado} />
         ))}
     </div>
   )

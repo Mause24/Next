@@ -1,5 +1,6 @@
 import React from 'react'
 import { IAvocado } from '@interfaces';
+import styles from './CardAvocado.module.css'
 
 interface PropsCardAvocado{
     avocado:IAvocado
@@ -7,7 +8,7 @@ interface PropsCardAvocado{
 
 const CardAvocado = ({avocado}:PropsCardAvocado) => {
   return (
-    <div>
+    <div className={styles.CardAvo}>
         <h1>{avocado.name}</h1>
           <p>
             <img src={`${avocado.image}`} alt="defaultAvocado" />

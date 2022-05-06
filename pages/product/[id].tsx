@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { IAvocado } from '@interfaces'
 import Loader from 'components/Loader/Loader'
+import CardAvocado from 'components/CardAvocado/CardAvocado'
 
 const ProductPage = () => {
   const {
@@ -35,19 +36,7 @@ const ProductPage = () => {
       {loader ? (
         <Loader />
       ) : (
-        <>
-          <h1>{avocado.name}</h1>
-          <p>
-            <img src={`${avocado.image}`} alt="defaultAvocado" />
-            <br />
-            id: {avocado.id}
-            <br />
-            name: {avocado.name}
-            <br />
-            price: ${avocado.price}
-            <br />
-          </p>
-        </>
+        <CardAvocado avocado={avocado} />
       )}
     </section>
   )

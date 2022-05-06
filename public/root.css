@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    background-color: red;
+}
+
+:root{
+    /* --color-primary:#568203;  */
+    --color-green-avo:#568203;
+}

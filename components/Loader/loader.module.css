@@ -4,7 +4,7 @@
   background: black;
   position: relative;
   border-radius: 50%;
-  animation: loading ease 1.2s infinite;
+  animation: loading ease-in-out 1.2s infinite;
 }
 
 @keyframes loading {
@@ -17,3 +17,42 @@
     opacity: 0;
   }
 }
+
+/* 
+
+===============================
+========LOADER DE JEAN=========
+===============================
+
+.loader {
+  display: flex;
+  width: 150px;
+  justify-content: space-around;
+}
+
+.loader__circle {
+  width: 30px;
+  height: 30px;
+  background-color: royalblue;
+  border-radius: 50%;
+  animation: loading 1.5s ease-in-out infinite;
+  transition: all ease 0.8s;
+}
+
+#circle_1 {
+  animation-delay: -0.32s;
+}
+
+#circle_2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes loading {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+} */
